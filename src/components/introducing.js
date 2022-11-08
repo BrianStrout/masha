@@ -2,7 +2,13 @@ import * as React from "react";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import ProgressiveImage from "react-progressive-image";
-import { animate, motion } from "framer-motion";
+import {
+  animate,
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import Masha from "../images/masha_insta.jpeg";
 import GalleryCase from "./GalleryCase";
 import GalleryAlbums from "./GalleryAlbums";
@@ -15,10 +21,19 @@ function Home({ imageDim, image }) {
     width: 524,
     height: 650,
   };
+
   const viewPull = document.documentElement.clientHeight;
   const viewCalc = viewPull / 2 - viewPull * 0.1;
   const viewBump = document.documentElement.clientHeight / 10;
+
   const [canScroll, setCanScroll] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+  const yhalfScaled = useTransform(scrollYProgress, [0.5, 1], [1, 1.35]);
+
+  // const scaleX = useSpring(scrollYProgress)
+
+  // return <motion.div style={{ scaleX }} />
 
   const firstName = {
     initial: {
@@ -89,10 +104,29 @@ function Home({ imageDim, image }) {
 
   const scroller = {
     initial: {
+      x: 0,
+    },
+    animate: {
+      x: 0,
+      transition: {
+        delayChildren: 4,
+        staggerChildren: 0.1,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const scrolling = {
+    initial: {
       x: 250,
     },
     animate: {
       x: 0,
+      transition: {
+        // delay: 1,
+        duration: 0.8,
+        // repeat: Infinity,
+      },
     },
   };
 
@@ -112,6 +146,8 @@ function Home({ imageDim, image }) {
       <div className="container fluid">
         <div className="row center top-row">
           <div className="top">
+            <div className="quoter">hi</div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{
@@ -187,29 +223,67 @@ function Home({ imageDim, image }) {
 
         <div className="row bottom-row">
           <div className="bottom">
-            <motion.div
-              className="scrollDown"
-              initial={{
-                x: 200,
-              }}
-              animate={{
-                x: 0,
-                transition: {
-                  delay: 1,
-                },
-              }}
-            >
+            {/* SCROLL */}
+            <motion.div className="scrollDown" variants={scroller}>
               <motion.span
-                style={{ display: "inline-block" }}
-                variants={letter}
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
               >
                 S
               </motion.span>
               <motion.span
-                style={{ display: "inline-block" }}
-                variants={letter}
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
               >
-                S
+                C
+              </motion.span>
+              <motion.span
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
+              >
+                R
+              </motion.span>
+              <motion.span
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
+              >
+                O
+              </motion.span>
+              <motion.span
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
+              >
+                L
+              </motion.span>
+              <motion.span
+                style={{
+                  display: "inline-block",
+                  opacity: useTransform(scrollYProgress, [0, 0.35], [1, 0]),
+                  // opacity: ".50",
+                }}
+                variants={scrolling}
+              >
+                L
               </motion.span>
             </motion.div>
 
@@ -234,6 +308,9 @@ function Home({ imageDim, image }) {
               {(src) => ( */}
                   <motion.img
                     className="imageScaled"
+                    style={{
+                      scale: yScaled,
+                    }}
                     src={Masha}
                     alt="Masha"
                     transition={transition}
@@ -257,8 +334,6 @@ function Home({ imageDim, image }) {
               </motion.div>
             </motion.div>
           </div>
-          {/* <ScrollForMore /> */}
-          <h1>scrolling in </h1>
         </div>
       </div>
 
@@ -266,20 +341,29 @@ function Home({ imageDim, image }) {
         <div className="container">
           <div className="row">
             <h2 className="title">
-              Something nice about her & <br /> what it means.
+              Masha header <br /> & and details.
             </h2>
             <p>
-              We should talk about how lovely Masha is here but I don't know the
+              {/* We should talk about how lovely Masha is here but I don't know the
               appropriate terminology so I'll just fill this space with a couple
               of facts. She knows Val from the coffee shop, seems very pretty
               and talented and didn't say my music was horrible. Woo, what a
-              bio.
+              bio. */}
+              noun: placeholder; plural noun: placeholders; noun: place-holder;
+              plural noun: place-holders 1. MATHEMATICS a significant zero in
+              the decimal representation of a number. a symbol or piece of text
+              used in a mathematical expression or in an instruction in a
+              computer program to denote a missing quantity or operator. 2.
+              LINGUISTICS an element of a sentence that is required by syntactic
+              constraints but carries little or no semantic information, for
+              example the word it as a subject in it is a pity that she left,
+              where the true subject is that she left.
             </p>
           </div>
         </div>
       </div>
 
-      {/* <GalleryCase /> */}
+      <GalleryCase />
       <Contact />
 
       {/* ender */}
