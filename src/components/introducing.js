@@ -28,7 +28,7 @@ function Home({ imageDim, image }) {
 
   const [canScroll, setCanScroll] = useState(false);
   const { scrollYProgress } = useScroll();
-  const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+  const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const yhalfScaled = useTransform(scrollYProgress, [0.5, 1], [1, 1.35]);
 
   // const scaleX = useSpring(scrollYProgress)
@@ -109,7 +109,7 @@ function Home({ imageDim, image }) {
     animate: {
       x: 0,
       transition: {
-        delayChildren: 4,
+        delayChildren: 7.5,
         staggerChildren: 0.1,
         staggerDirection: 1,
       },
@@ -129,7 +129,26 @@ function Home({ imageDim, image }) {
       },
     },
   };
-
+  const fader = {
+    animate: {
+      transition: {
+        delayChildren: 4,
+        staggerChildren: 0.4,
+        staggerDirection: 1,
+      },
+    },
+  };
+  const fadey = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: [0, 0.4, 0.8, 0.8, 0.8, 0],
+      transition: {
+        duration: 3,
+      },
+    },
+  };
   const assembled = <GalleryAlbums />;
 
   console.log(assembled);
@@ -146,7 +165,11 @@ function Home({ imageDim, image }) {
       <div className="container fluid">
         <div className="row center top-row">
           <div className="top">
-            <div className="quoter">hi</div>
+            <motion.div className="quoter" variants={fader}>
+              <motion.span variants={fadey}>Lisbon </motion.span>
+              <motion.span variants={fadey}>based </motion.span>
+              <motion.span variants={fadey}>model</motion.span>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -228,7 +251,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
@@ -238,7 +261,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
@@ -248,7 +271,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
@@ -258,7 +281,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
@@ -268,7 +291,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
@@ -278,7 +301,7 @@ function Home({ imageDim, image }) {
               <motion.span
                 style={{
                   display: "inline-block",
-                  opacity: useTransform(scrollYProgress, [0, 0.35], [1, 0]),
+                  opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                   // opacity: ".50",
                 }}
                 variants={scrolling}
