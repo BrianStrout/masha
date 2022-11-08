@@ -1,3 +1,10 @@
+:root {
+  --imgCalc: calc(50vh-128px);
+  --backColor: #e2e3d4;
+  --acct1: #9f523f;
+  --acct2: #bb8248;
+  --acct2o: #bb81484e;
+}
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +13,15 @@
 .GalleryDisplayCase {
   width: 100%;
   height: 90vh;
-  background-color: blue;
+  background: linear-gradient(var(--backColor), var(--acct2));
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 3rem;
   padding: 4rem;
 }
 
 .DisplayItem {
-  background-color: gold;
+  background-color: var(--backColor);
 }
