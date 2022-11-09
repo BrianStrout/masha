@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import ProgressiveImage from "react-progressive-image";
+// import ProgressiveImage from "react-progressive-image";
 import {
   animate,
   motion,
@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import Masha from "../images/masha_insta.jpeg";
 import GalleryCase from "./GalleryCase";
-import GalleryAlbums from "./GalleryAlbums";
+// import GalleryAlbums from "./GalleryAlbums";
 import Contact from "./Contact";
 import "../App.css";
 
@@ -25,15 +25,19 @@ function Home({ imageDim, image }) {
   const viewPull = document.documentElement.clientHeight;
   const viewCalc = viewPull / 2 - viewPull * 0.1;
   const viewBump = document.documentElement.clientHeight / 10;
-
   const [canScroll, setCanScroll] = useState(false);
+
+  React.useEffect(() => {
+    if (canScroll === false) {
+      document.querySelector("body").classList.add("no-scroll");
+    } else {
+      document.querySelector("body").classList.remove("no-scroll");
+    }
+  }, [canScroll]);
+
   const { scrollYProgress } = useScroll();
   const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const yhalfScaled = useTransform(scrollYProgress, [0.5, 1], [1, 1.35]);
-
-  // const scaleX = useSpring(scrollYProgress)
-
-  // return <motion.div style={{ scaleX }} />
 
   const firstName = {
     initial: {
@@ -76,7 +80,6 @@ function Home({ imageDim, image }) {
     animate: {
       y: 80,
       transition: {
-        // duration: 1,
         delayChildren: 3.5,
         staggerChildren: 0.25,
         staggerDirection: -1,
@@ -149,10 +152,10 @@ function Home({ imageDim, image }) {
       },
     },
   };
-  const assembled = <GalleryAlbums />;
+  // const assembled = <GalleryAlbums />;
 
-  console.log(assembled);
-
+  // console.log(assembled);
+  console.log(viewCalc, "calculated2");
   return (
     <motion.div
       onAnimationComplete={() => setCanScroll(true)}
@@ -327,8 +330,6 @@ function Home({ imageDim, image }) {
                 }}
               >
                 <div className="frame">
-                  {/* <ProgressiveImage src={Masha}>
-              {(src) => ( */}
                   <motion.img
                     className="imageScaled"
                     style={{
@@ -350,9 +351,6 @@ function Home({ imageDim, image }) {
                       // y: window.innerWidth > 1440 ? 40 : 0,
                     }}
                   />
-
-                  {/* )}
-            </ProgressiveImage> */}
                 </div>
               </motion.div>
             </motion.div>
@@ -367,20 +365,11 @@ function Home({ imageDim, image }) {
               Masha header <br /> & and details.
             </h2>
             <p>
-              {/* We should talk about how lovely Masha is here but I don't know the
+              We should talk about how lovely Masha is here but I don't know the
               appropriate terminology so I'll just fill this space with a couple
               of facts. She knows Val from the coffee shop, seems very pretty
               and talented and didn't say my music was horrible. Woo, what a
-              bio. */}
-              noun: placeholder; plural noun: placeholders; noun: place-holder;
-              plural noun: place-holders 1. MATHEMATICS a significant zero in
-              the decimal representation of a number. a symbol or piece of text
-              used in a mathematical expression or in an instruction in a
-              computer program to denote a missing quantity or operator. 2.
-              LINGUISTICS an element of a sentence that is required by syntactic
-              constraints but carries little or no semantic information, for
-              example the word it as a subject in it is a pity that she left,
-              where the true subject is that she left.
+              bio.
             </p>
           </div>
         </div>

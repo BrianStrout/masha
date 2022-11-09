@@ -1,11 +1,10 @@
 import React from "react";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
-import Mashal from "../images/logo.gif";
+import Masha from "../images/logo.gif";
 import { motion } from "framer-motion";
 import "../App.css";
-import { IoLogoInstagram } from react-icons/all-files/Io
-import { icons } from "react-icons";
+import { IoLogoInstagram } from "react-icons/io";
 
 // variants
 const draw = {
@@ -26,7 +25,7 @@ const draw = {
 const Header = () => {
   const { scrollYProgress } = useScroll();
   const yScaled = useTransform(scrollYProgress, [0.2, 1], [1, 0]);
-  const yScaled2 = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const yScaled2 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
 
   return (
     <>
@@ -61,7 +60,6 @@ const Header = () => {
             variants={draw}
             custom={1}
           />
-          <IoLogoInstagram />
         </motion.svg>
         {/* <img
         id="logoGif"

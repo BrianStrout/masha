@@ -1,0 +1,58 @@
+[
+  {
+    "name": "one",
+    "photo": [
+      "./photoGallery/affair/summer1.jpg",
+      "./photoGallery/affair/summer2.jpg",
+      "./photoGallery/affair/summer3.jpg",
+      "./photoGallery/affair/summer4.jpg",
+      "./photoGallery/affair/summer5.jpg",
+      "./photoGallery/affair/summer6.jpg",
+      "./photoGallery/affair/summer7.jpg"
+    ]
+  },
+  {
+    "name": "one",
+    "photo": [
+      "./photoGallery/affair/summer1.jpg",
+      "./photoGallery/affair/summer2.jpg",
+      "./photoGallery/affair/summer3.jpg",
+      "./photoGallery/affair/summer4.jpg",
+      "./photoGallery/affair/summer5.jpg",
+      "./photoGallery/affair/summer6.jpg",
+      "./photoGallery/affair/summer7.jpg"
+    ]
+  },
+  {
+    "name": "one",
+    "photo": [
+      "./photoGallery/affair/summer1.jpg",
+      "./photoGallery/affair/summer2.jpg",
+      "./photoGallery/affair/summer3.jpg",
+      "./photoGallery/affair/summer4.jpg",
+      "./photoGallery/affair/summer5.jpg",
+      "./photoGallery/affair/summer6.jpg",
+      "./photoGallery/affair/summer7.jpg"
+    ]
+  },
+  {
+    "name": "one",
+    "photo": [
+      "./photoGallery/affair/summer1.jpg",
+      "./photoGallery/affair/summer2.jpg",
+      "./photoGallery/affair/summer3.jpg",
+      "./photoGallery/affair/summer4.jpg",
+      "./photoGallery/affair/summer5.jpg",
+      "./photoGallery/affair/summer6.jpg",
+      "./photoGallery/affair/summer7.jpg"
+    ]
+  },
+  {
+    "name": "working?",
+    "photo": "hi"
+  },
+  {
+    "name": "onefin",
+    "photo": "./photoGallery/affair/summer1.jpg"
+  }
+]

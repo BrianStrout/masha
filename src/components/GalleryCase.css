@@ -24,4 +24,23 @@
 
 .DisplayItem {
   background-color: var(--backColor);
+  position: relative;
+  display: grid;
+  grid-template-rows: 90% 1fr;
+}
+
+.Display_Item_Photo {
+  background-color: aquamarine;
+  position: relative;
+}
+
+.Merch_Item_Image {
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+}
+
+.Display_Title {
+  position: absolute;
+  bottom: 0;
 }
