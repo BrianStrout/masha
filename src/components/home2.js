@@ -1,12 +1,12 @@
 import * as React from "react";
 import Masha from "../images/masha_insta.jpeg";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import ProgressiveImage from "react-progressive-image";
 import { motion } from "framer-motion";
 import "../App.css";
 
 function Home({ imageDim, image }) {
-  const transition = { duration: 1.6, ease: [0.43, 0.13, 0.23, 0.96] };
+  // const transition = { duration: 1.6, ease: [0.43, 0.13, 0.23, 0.96] };
   const imageDetails = {
     width: 524,
     height: 650,

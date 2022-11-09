@@ -1,10 +1,9 @@
 import React from "react";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
-import Masha from "../images/logo.gif";
 import { motion } from "framer-motion";
 import "../App.css";
-import { IoLogoInstagram } from "react-icons/io";
+// import { IoLogoInstagram } from "react-icons/io";
 
 // variants
 const draw = {

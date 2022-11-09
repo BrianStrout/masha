@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../App.css";
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiMessengerLine } from "react-icons/ri";
-import { BsWhatsapp } from "react-icons/bs";
+// import { BsWhatsapp } from "react-icons/bs";
 
 const Contact = () => {
   // const form = useRef();

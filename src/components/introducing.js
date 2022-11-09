@@ -1,14 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 // import ProgressiveImage from "react-progressive-image";
-import {
-  animate,
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Masha from "../images/masha_insta.jpeg";
 import GalleryCase from "./GalleryCase";
 // import GalleryAlbums from "./GalleryAlbums";
@@ -37,7 +30,7 @@ function Home({ imageDim, image }) {
 
   const { scrollYProgress } = useScroll();
   const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-  const yhalfScaled = useTransform(scrollYProgress, [0.5, 1], [1, 1.35]);
+  // const yhalfScaled = useTransform(scrollYProgress, [0.5, 1], [1, 1.35]);
 
   const firstName = {
     initial: {
