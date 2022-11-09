@@ -12,10 +12,8 @@ function Home({ imageDim, image }) {
     height: 650,
   };
   const viewPull = document.documentElement.clientHeight;
-  // const viewBig =
 
   // the dom height divided by two - dom height / 10 meaning 0.4 original height
-
   const viewCalc = viewPull / 2 - viewPull * 0.1;
 
   console.log(viewCalc, "calculated");

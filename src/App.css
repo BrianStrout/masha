@@ -1,38 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+
+:root {
+  --imgCalc: calc(50vh-128px);
+  --backColor: #e2e3d4;
+  --acct1: #9f523f;
+  --acct2: #bb8248;
+  --acct3: #cb9d72;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+circle,
+rect,
+line {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  fill: transparent;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main_container {
+  background-color: var(--backColor);
+  height: 100vh;
+  width: 100vw;
+  /* display: grid; */
+  grid-template-rows: 1fr, 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "gheader"
+    "gdisplay";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.no-scroll {
+  overflow-y: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  font-size: 16px;
+  position: fixed;
+  z-index: 90;
+  width: 100%;
+  height: 10vh;
+  font-weight: "700";
+
+  background-color: var(--acct3);
+  grid-area: "gheader";
+}
+.header2 {
+  background: var(--backColor);
+  z-index: 91;
+}
+.headerIn {
+  font-size: 16px;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 10vh;
+  font-weight: "700";
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+}
+#smallName {
+  font-family: "Maragsa";
+  font-size: 2rem;
+}
+#logoGif {
+  position: absolute;
+  right: 0;
+  opacity: 100%;
+  width: 8rem;
+  background-color: transparent;
+}
+.container {
+  /* background-color: var(--backColor); */
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.container_served {
+  width: 80%;
+  background-color: var(--backColor);
+  padding: 2rem;
+}
+.quoter {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  z-index: 10;
+}
+.quoter > span {
+  font-family: "Italiana", serif;
+  font-size: 3rem;
+}
+.frame {
+  height: var(--imgCalc);
+  background-color: var(--backColor);
+}
+.thumbnail {
+  /* grid-area: gdisplay; */
+  display: static;
+  top: -100%;
+  width: 100%;
+  /* background-color: lawngreen; */
+  height: var(--imgCalc);
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  align-items: center;
+  justify-items: center;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.thumbnail > .frame {
+  opacity: 100%;
+}
+.row {
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.top {
+  background-color: var(--backColor);
+  height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.bottom {
+  background-color: var(--backColor);
+  height: 40vh;
+  /* background-color: #9f523f; */
+}
+
+.blocker {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: auto; */
+  justify-content: end;
+  /* background-color: blueviolet; */
+  /* bottom: 0; */
+}
+.location > span {
+  font-size: 1.25rem;
+  padding: 0 1.5rem;
+}
+.model {
+  /* overflow: hidden; */
+}
+.first {
+  display: "inline-block";
+}
+.letter {
+  display: "inline-block";
+}
+
+/* .first {
+  margin-right: 72px;
+} */
+
+.model > span {
+  display: inline-block;
+  position: relative;
+  font-weight: 400;
+  font-size: 174px;
+  font-family: "Maragsa";
+  @media (max-width: 1440px) {
+    font-size: 128px;
   }
 }
+
+.scrollDown {
+  position: absolute;
+  z-index: 40;
+  top: 75%;
+  right: 0;
+  margin-right: 30px;
+}
+
+.scrollDown > span {
+  font-family: "Rock Salt", cursive;
+  color: var(--acct2);
+}
+
+.detailed-information {
+  background-color: var(--backColor);
+  box-sizing: border-box;
+  margin-top: 4rem;
+
+  height: 25vh;
+  /* padding: 2rem; */
+  padding-top: 4rem;
+}
+.contacter {
+  height: 100vh;
+  background-color: var(--backColor);
+  padding: 6rem 3rem;
+}
+
+/* $main: #f0d8bb;
+$white: #ffffff;
+$black: #1e1f13;
+
+* {
+  box-sizing: border-box;
+  font-family: "HelveticaNeue-CondensedBold", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 900;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $main;
+  color: $black;
+  &:before {
+    animation: grain 8s steps(10) infinite;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png");
+    content: "";
+    height: 300%;
+    left: -50%;
+    opacity: 0.3;
+    position: fixed;
+    top: -100%;
+    width: 300%;
+  }
+  &.no-scroll {
+    overflow-y: hidden;
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+//Header
+
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  width: auto;
+  height: 100%;
+  &.fluid {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  @media (min-width: 1024px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1216px) {
+    max-width: 1152px;
+  }
+  @media (min-width: 1408px) {
+    max-width: 1560px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    &.space-between {
+      justify-content: space-between;
+    }
+    &.center {
+      justify-content: center;
+    }
+  }
+}
+
+header {
+  font-size: 16px;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  font-weight: "700";
+  .container {
+    .row {
+      height: 128px;
+      .logo {
+        a {
+          color: $black;
+          text-decoration: none;
+        }
+      }
+      .menu {
+        cursor: pointer;
+        border-radius: 100%;
+        border: 1px solid $black;
+        height: 80px;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          color: $white;
+          background: $black;
+        }
+      }
+    }
+  }
+}
+
+main > .container {
+  position: relative;
+}
+.row {
+  height: 100vh;
+  align-items: center;
+}
+.image-container {
+  position: relative;
+}
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+}
+.frame {
+  img {
+    width: 100%;
+  }
+}
+
+.information {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.location {
+  span:nth-child(2) {
+    margin-left: 8px;
+  }
+}
+
+.single > .container > .top-row {
+  height: 50vh;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.top {
+  padding-bottom: 40px;
+}
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.location {
+  span:nth-child(2) {
+    margin-left: 16px;
+  }
+}
+.mua {
+  text-transform: uppercase;
+}
+
+.model {
+  overflow: hidden;
+}
+.first {
+  margin-right: 72px;
+}
+span {
+  display: inline-block;
+  position: relative;
+  font-weight: 400;
+  font-size: 224px;
+  font-family: "Maragsa";
+  @media (max-width: 1440px) {
+    font-size: 128px;
+  }
+}
+
+.bottom-row {
+  height: 50vh;
+  position: relative;
+}
+.bottom {
+  height: 100%;
+  width: 100%;
+}
+.thumbnail-single {
+  width: 100%;
+  height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.frame-single > img {
+  position: absolute;
+  width: 100%;
+}
+.scroll-for-more {
+  position: absolute;
+  bottom: 200px;
+  left: 200px;
+  z-index: 20;
+}
+.icon {
+  svg {
+    height: auto;
+    width: 28px;
+  }
+}
+.text {
+  margin-top: 8px;
+  /* color: $white; */
+
+/* text-transform: uppercase;
+}
+
+.detailed-information {
+  margin-top: 200px;
+  height: 600px;
+}
+.detailed-information > .container > .row {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.detailed-information > .container > h2 {
+  font-size: 28px;
+}
+.detailed-information > .container > p {
+  font-family: "Helvetica Neue";
+  font-size: 16;
+  line-height: 28px;
+  font-weight: 400;
+  width: 800px;
+} */
