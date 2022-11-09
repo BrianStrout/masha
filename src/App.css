@@ -149,7 +149,7 @@ line {
   display: flex;
   flex-direction: column;
   /* margin-top: auto; */
-  justify-content: end;
+  justify-content: flex-end;
   /* background-color: blueviolet; */
   /* bottom: 0; */
 }
