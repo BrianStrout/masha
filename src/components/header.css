@@ -1,6 +1,14 @@
-#logoGif{
-    position: absolute;
-    right: 0;
-    opacity: 50%;
-    width: 10rem;
+#logoGif {
+  position: absolute;
+  right: 0;
+  opacity: 50%;
+  width: 10rem;
+}
+.logoBox {
+  background-color: blueviolet;
+  position: absolute;
+  right: 0;
+  opacity: 100%;
+  width: 10rem;
+  height: 10rem;
 }

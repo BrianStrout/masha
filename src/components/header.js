@@ -1,9 +1,13 @@
 import React from "react";
+import { useRef, useEffect, useState } from "react";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
 import { motion } from "framer-motion";
+import { SiVsco, SiInstagram } from "react-icons/si";
+import { SlMenu } from "react-icons/sl";
 import "../App.css";
-// import { IoLogoInstagram } from "react-icons/io";
+import "./drop.css";
+// import DropdownItem from
 
 // variants
 const draw = {
@@ -22,6 +26,24 @@ const draw = {
 };
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  let menuRef = useRef();
+  // console.log(menuRef, "...");
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setOpen(false);
+        console.log("hit");
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   const { scrollYProgress } = useScroll();
   const yScaled = useTransform(scrollYProgress, [0.2, 1], [1, 0]);
   const yScaled2 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
@@ -43,6 +65,64 @@ const Header = () => {
         >
           Masha
         </motion.h2>
+        {/* 
+        <div
+          className="logoBox menu-trigger"
+          ref={menuRef}
+          onClick={() => {
+            setOpen(!open);
+          }}
+        > */}
+        <div className="menu-container" ref={menuRef}>
+          <div
+            className="logoBox"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <SlMenu />
+            {/* <div className="hi"> */}
+
+            {/* <p>
+              {" "}
+              
+            </p> */}
+            {/* </div> */}
+          </div>
+
+          <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            <h3>
+              Masha
+              <br />
+              <ul className="businessCard">
+                <li>
+                  <span>Model</span>
+                </li>
+                <li>
+                  <span>📍 Lisbon based</span>
+                </li>
+                <li>
+                  <span>📍 London often</span>
+                </li>
+                <li>
+                  <span>Mgmt: Strout Agency</span>
+                </li>
+              </ul>
+            </h3>
+
+            <ul>
+              <li className="dropDownItem">
+                <SiInstagram />
+                <span> @MEEEEE</span>
+              </li>
+              <li className="dropDownItem">
+                <SiVsco />
+                <span>@MEEEE2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <motion.svg
           id="logoGif"
           width="100"
@@ -60,6 +140,7 @@ const Header = () => {
             custom={1}
           />
         </motion.svg>
+        {/* </div> */}
         {/* <img
         id="logoGif"
         src={Mashal}
