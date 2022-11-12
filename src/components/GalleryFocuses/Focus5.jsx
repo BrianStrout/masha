@@ -8,9 +8,10 @@ import "swiper/css/navigation";
 import "./style.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Summer1, Blur1, Class1, Orange1, Techni1 } from "../photoGallery";
 import Pinboard1 from "../photoGallery/pinboard/pinboard.jpg";
 
-export default function Focus5() {
+export default function Focus5(props) {
   return (
     <>
       <div className="Focused_Gallery">
@@ -32,6 +33,79 @@ export default function Focus5() {
             <img src={Pinboard1} alt="pb1" />
           </SwiperSlide>
         </Swiper>
+
+        <div className="focus_tab_holder">
+          <div
+            className="focus_tab"
+            id="Menu"
+            onClick={props.update}
+            style={{
+              // backgroundImage: `url(${Orange1})`,
+              backgroundSize: "cover",
+            }}
+          >
+            Menu
+          </div>
+          <div
+            className="focus_tab"
+            id="Focus1"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Summer1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+
+          <div
+            className="focus_tab"
+            id="Focus2"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Blur1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+
+          <div
+            className="focus_tab"
+            id="Focus3"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Class1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+
+          <div
+            className="focus_tab"
+            id="Focus4"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Orange1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+
+          <div
+            className="focus_tab"
+            id="Focus5"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Pinboard1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+
+          <div
+            className="focus_tab"
+            id="Focus6"
+            onClick={props.update}
+            style={{
+              backgroundImage: `url(${Techni1})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+        </div>
       </div>
     </>
   );

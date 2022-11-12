@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 import GalleryCase from "./GalleryCase";
-import Contact from "./Contact";
+
 import Focus1 from "./GalleryFocuses/Focus1";
 import Focus2 from "./GalleryFocuses/Focus2";
 import Focus3 from "./GalleryFocuses/Focus3";
@@ -14,38 +14,53 @@ import Focus6 from "./GalleryFocuses/Focus6";
 import "../App.css";
 import "./GalleryCase.css";
 
-function run() {
-  console.log("run");
-}
-
-function switchBoard() {
-  console.log("switch");
-}
-
 const GalleryControl = () => {
   const [slideCalled, updateSlide] = useState(<GalleryCase />);
 
   useEffect(() => {
     let handler = (e) => {
-      if (e.target.classList.contains("Display_Item_Photo")) {
-        console.log(e.target.id);
+      if (
+        e.target.classList.contains("Display_Item_Photo") ||
+        e.target.classList.contains("focus_tab")
+      ) {
+        console.log(e.target.id + "this is the handlers target id");
+
+        switch (e.target.id) {
+          case "hi":
+            console.log("works");
+            break;
+
+          case "Menu":
+            updateSlide(<GalleryCase />);
+            break;
+          case "Focus1":
+            updateSlide(<Focus1 update={handler} />);
+            break;
+          case "Focus2":
+            updateSlide(<Focus2 update={handler} />);
+            break;
+          case "Focus3":
+            updateSlide(<Focus3 update={handler} />);
+            break;
+          case "Focus4":
+            updateSlide(<Focus4 update={handler} />);
+            break;
+          case "Focus5":
+            updateSlide(<Focus5 update={handler} />);
+            break;
+          case "Focus6":
+            updateSlide(<Focus6 update={handler} />);
+            break;
+
+          default:
+            break;
+        }
       }
     };
     document.addEventListener("click", handler);
   });
 
-  return (
-    <div className="GalleryControl">
-      {slideCalled}
-
-      <button onClick={() => updateSlide(<Focus1 />)}>handle1</button>
-      <button onClick={() => updateSlide(<Focus2 />)}>handle2</button>
-      <button onClick={() => updateSlide(<Focus3 />)}>handle3</button>
-      <button onClick={() => updateSlide(<Focus4 />)}>handle4</button>
-      <button onClick={() => updateSlide(<Focus5 />)}>handle5</button>
-      <button onClick={() => updateSlide(<Focus6 />)}>handle6</button>
-    </div>
-  );
+  return <div className="GalleryControl">{slideCalled}</div>;
 };
 
 export default GalleryControl;

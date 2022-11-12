@@ -119,7 +119,7 @@ function Home({ imageDim, image }) {
     animate: {
       x: 0,
       transition: {
-        delayChildren: 7.5,
+        delayChildren: 6.5,
         staggerChildren: 0.1,
         staggerDirection: 1,
       },
@@ -153,7 +153,7 @@ function Home({ imageDim, image }) {
       opacity: 0,
     },
     animate: {
-      opacity: [0, 0.4, 0.8, 0.8, 0.8, 0],
+      opacity: [0, 0.4, 0.8, 0.8, 0.4, 0],
       transition: {
         duration: 3,
       },
