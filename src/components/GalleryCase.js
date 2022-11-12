@@ -9,15 +9,17 @@ import {
   Pinboard1,
   Techni1,
 } from "./photoGallery";
+import Modal from "./Modal";
 
-const galleryCase = () => {
+const GalleryCase = () => {
   // console.log(galleryJson);
 
   return (
     <div className="GalleryDisplayCase">
-      <div className="DisplayItem">
+      <div className="DisplayItem" data-key={"1"}>
         <div
           className="Display_Item_Photo"
+          id="Focus1"
           style={{
             backgroundImage: `url(${Summer1})`,
             backgroundSize: "cover",
@@ -28,6 +30,7 @@ const galleryCase = () => {
       <div className="DisplayItem">
         <div
           className="Display_Item_Photo"
+          id="Focus2"
           style={{
             backgroundImage: `url(${Blur1})`,
             backgroundSize: "cover",
@@ -38,6 +41,7 @@ const galleryCase = () => {
       <div className="DisplayItem">
         <div
           className="Display_Item_Photo"
+          id="Focus3"
           style={{
             backgroundImage: `url(${Class1})`,
             backgroundSize: "cover",
@@ -48,6 +52,7 @@ const galleryCase = () => {
       <div className="DisplayItem">
         <div
           className="Display_Item_Photo"
+          id="Focus4"
           style={{
             backgroundImage: `url(${Orange1})`,
             backgroundSize: "cover",
@@ -58,6 +63,7 @@ const galleryCase = () => {
       <div className="DisplayItem">
         <div
           className="Display_Item_Photo"
+          id="Focus5"
           style={{
             backgroundImage: `url(${Pinboard1})`,
             backgroundSize: "cover",
@@ -68,6 +74,7 @@ const galleryCase = () => {
       <div className="DisplayItem">
         <div
           className="Display_Item_Photo"
+          id="Focus6"
           style={{
             backgroundImage: `url(${Techni1})`,
             backgroundSize: "cover",
@@ -75,58 +82,8 @@ const galleryCase = () => {
         ></div>
         <div className="Display_Title">Summer Shot</div>
       </div>
-
-      {/*
-      <div className="DisplayItem">
-        <div className="Display_Item_Photo">
-          <div
-            className="Merch_Item_Image"
-            style={{ background-image: { Blur1 } }}
-          ></div>
-        </div>
-        <div className="Display_Title">Summer Shot</div>
-      </div>
-
-      <div className="DisplayItem">
-        <div className="Display_Item_Photo">
-          <div
-            className="Merch_Item_Image"
-            style={{ background-image: { Class1 } }}
-          ></div>
-        </div>
-        <div className="Display_Title">Summer Shot</div>
-      </div>
-
-      <div className="DisplayItem">
-        <div className="Display_Item_Photo">
-          <div
-            className="Merch_Item_Image"
-            style={{ background-image: { Orange1 } }}
-          ></div>
-        </div>
-        <div className="Display_Title">Summer Shot</div>
-      </div>
-
-      <div className="DisplayItem">
-        <div className="Display_Item_Photo">
-          <div
-            className="Merch_Item_Image"
-            style={{ background-image: { Pinboard1 } }}
-          ></div>
-        </div>
-        <div className="Display_Title">Summer Shot</div>
-      </div>
-      <div className="DisplayItem">
-        <div className="Display_Item_Photo">
-          <div
-            className="Merch_Item_Image"
-            style={{ background-image: { Techni1 } }}
-          ></div>
-        </div>
-        <div className="Display_Title">Summer Shot</div>
-      </div> */}
     </div>
   );
 };
 
-export default galleryCase;
+export default GalleryCase;

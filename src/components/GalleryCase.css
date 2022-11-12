@@ -10,16 +10,33 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.GalleryControl {
+  background: linear-gradient(var(--backColor), var(--acct2));
+}
+
 .GalleryDisplayCase {
   width: 100%;
   min-height: 90vh;
-  background: linear-gradient(var(--backColor), var(--acct2));
+  background-color: transparent;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 3rem;
   padding: 4rem;
+}
+
+.Focused_Gallery {
+  width: 100%;
+  min-height: 90vh;
+  background-color: transparent;
+  /* background-color: fuchsia; */
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3rem; */
+  padding: 5vh;
 }
 
 .DisplayItem {
