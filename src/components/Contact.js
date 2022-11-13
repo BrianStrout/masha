@@ -2,7 +2,6 @@ import React from "react";
 import { useRef } from "react";
 import "../App.css";
 import "./contact.css";
-import { MdOutlineEmail } from "react-icons/md";
 import { RiMessengerLine } from "react-icons/ri";
 import emailjs from "@emailjs/browser";
 
@@ -25,19 +24,12 @@ const Contact = () => {
   return (
     <section id="contact">
       <div className="container contact__container">
-        <div className="contacthi">
+        <div className="contact_hi">
           <h2>contact me</h2>
           <br />
           <h5>get in touch</h5>
         </div>
         <div className="contact__options">
-          <article className="contact__option">
-            <MdOutlineEmail />
-            <h4>email</h4>
-            <h5>email.email.com</h5>
-            <a href="mailto:me@me.com">send an email</a>
-          </article>
-
           <article className="contact__option">
             <RiMessengerLine />
             <h4>fb/if messenger</h4>
@@ -62,7 +54,7 @@ const Contact = () => {
             rows="10"
             required
           ></textarea>
-          <button type="submit" className="btn btn-primary">
+          <button id="subButton" type="submit" className="btn btn-primary">
             Send Mesg
           </button>
         </form>

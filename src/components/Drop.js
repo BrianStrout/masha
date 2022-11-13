@@ -7,14 +7,13 @@ import help from "./img/question.png";
 import logout from "./img/log-out.png";
 import "../App.css";
 import "./drop.css";
-
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
-  let test = true;
 
   useEffect(() => {
     let handler = (e) => {
@@ -64,8 +63,8 @@ function App() {
 function DropdownItem(props) {
   return (
     <li className="dropdownItem">
-      <img src={props.img}></img>
-      <a> {props.text} </a>
+      <img src={props.img} alt="list"></img>
+      <Link> {props.text} </Link>
     </li>
   );
 }

@@ -3,22 +3,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Masha from "../images/masha_insta.jpeg";
-import GalleryCase from "./GalleryControl";
+import GalleryControl from "./GalleryControl";
 import Contact from "./Contact";
 import "../App.css";
-import Modal from "./Modal";
 
 function Home({ imageDim, image }) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
   useEffect(() => {
     let handler = (e) => {
       if (e.target.classList.contains("Display_Item_Photo")) {
         // console.log("hit");
-
-        modalOpen ? close() : open();
-        // console.log(modalOpen, "O?");
       }
     };
     document.addEventListener("mousedown", handler);
@@ -165,7 +158,6 @@ function Home({ imageDim, image }) {
   // console.log(viewCalc, "calculated2");
   return (
     <>
-      {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
       <motion.div
         onAnimationComplete={() => setCanScroll(true)}
         className="single"
@@ -369,7 +361,7 @@ function Home({ imageDim, image }) {
 
         <div className="detailed-information">
           <div className="container">
-            <div className="row">
+            <div className="bio">
               <h2 className="title">
                 Masha header <br /> & and details.
               </h2>
@@ -384,7 +376,7 @@ function Home({ imageDim, image }) {
           </div>
         </div>
 
-        <GalleryCase />
+        <GalleryControl />
         <Contact />
 
         {/* ender */}

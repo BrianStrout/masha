@@ -9,7 +9,6 @@ import {
   Pinboard1,
   Techni1,
 } from "./photoGallery";
-import Modal from "./Modal";
 
 const GalleryCase = () => {
   // console.log(galleryJson);
