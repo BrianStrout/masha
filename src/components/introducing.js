@@ -6,6 +6,7 @@ import Masha from "../images/masha_insta.jpeg";
 import GalleryControl from "./GalleryControl";
 import Contact from "./Contact";
 import "../App.css";
+import { Footer } from "./Footer";
 
 function Home({ imageDim, image }) {
   useEffect(() => {
@@ -27,12 +28,20 @@ function Home({ imageDim, image }) {
   const viewCalc = viewPull / 2 - viewPull * 0.1;
   const viewBump = document.documentElement.clientHeight / 10;
   const [canScroll, setCanScroll] = useState(false);
+  const [introduced, introducer] = useState(false);
+
+  React.useEffect(() => {
+    if (introduced === true) {
+      document.getElementById("findMe").classList.remove("hide");
+    }
+  }, [introduced]);
 
   React.useEffect(() => {
     if (canScroll === false) {
       document.querySelector("body").classList.add("no-scroll");
     } else {
       document.querySelector("body").classList.remove("no-scroll");
+      introducer(true);
     }
   }, [canScroll]);
 
@@ -378,6 +387,7 @@ function Home({ imageDim, image }) {
 
         <GalleryControl />
         <Contact />
+        <Footer />
 
         {/* ender */}
       </motion.div>

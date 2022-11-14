@@ -64,7 +64,7 @@ a {
   transform: rotate(45deg);
 }
 
-.dropdown-menu.active {
+/* .dropdown-menu.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -76,7 +76,7 @@ a {
   visibility: hidden;
   transform: translateY(-20px);
   transition: var(--speed) ease;
-}
+} */
 
 h3 {
   width: 100%;

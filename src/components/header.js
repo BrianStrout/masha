@@ -3,11 +3,11 @@ import { useRef, useEffect, useState } from "react";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
 import { motion } from "framer-motion";
-import { SiVsco, SiInstagram } from "react-icons/si";
+import { AnimatePresence } from "framer-motion";
 import { SlMenu } from "react-icons/sl";
 import "../App.css";
 import "./drop.css";
-// import DropdownItem from
+import BusinessCard from "./BusinessCard";
 
 // variants
 const draw = {
@@ -29,12 +29,12 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
-  // console.log(menuRef, "...");
+
   useEffect(() => {
     let handler = (e) => {
+      console.log("hadnler coming");
       if (!menuRef.current.contains(e.target)) {
         setOpen(false);
-        // console.log("hit");
       }
     };
 
@@ -50,7 +50,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="hide">
+      <div id="findMe" className="hide">
         <motion.div className="header" style={{ opacity: 1 }}></motion.div>
         <motion.div
           className="header header2"
@@ -66,61 +66,22 @@ const Header = () => {
           >
             Masha
           </motion.h2>
-          {/* 
-        <div
-          className="logoBox menu-trigger"
-          ref={menuRef}
-          onClick={() => {
-            setOpen(!open);
-          }}
-        > */}
+
           <div className="menu-container" ref={menuRef}>
-            <div
-              className="logoBox"
-              onClick={() => {
-                setOpen(!open);
-              }}
-            >
-              <SlMenu />
-              {/* <div className="hi"> */}
+            <div className="dropFlex">
+              <div
+                className="logoBox"
+                onClick={() => {
+                  setOpen(!open);
+                }}
+              >
+                <SlMenu />
+              </div>
 
-              {/* <p>
-              {" "}
-              
-            </p> */}
-              {/* </div> */}
-            </div>
-
-            <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-              <h3>
-                Masha
-                <br />
-                <ul className="businessCard">
-                  <li>
-                    <span>Model</span>
-                  </li>
-                  <li>
-                    <span>📍 Lisbon based</span>
-                  </li>
-                  <li>
-                    <span>📍 London often</span>
-                  </li>
-                  <li>
-                    <span>Mgmt: Strout Agency</span>
-                  </li>
-                </ul>
-              </h3>
-
-              <ul>
-                <li className="dropDownItem">
-                  <SiInstagram />
-                  <span> @MEEEEE</span>
-                </li>
-                <li className="dropDownItem">
-                  <SiVsco />
-                  <span>@MEEEE2</span>
-                </li>
-              </ul>
+              {/* {cardShown} */}
+              <AnimatePresence exitBeforeEnter>
+                {open ? <BusinessCard /> : null}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -141,13 +102,6 @@ const Header = () => {
               custom={1}
             />
           </motion.svg>
-          {/* </div> */}
-          {/* <img
-        id="logoGif"
-        src={Mashal}
-        alt=""
-        onClick={console.log("Masha Clicked")}
-      /> */}
         </motion.div>
       </div>
     </>
