@@ -7,6 +7,7 @@ import GalleryControl from "./GalleryControl";
 import Contact from "./Contact";
 import "../App.css";
 import { Footer } from "./Footer";
+import CompCard from "./CompCard";
 
 function Home(props) {
   console.log("incoming props: " + props.isMobile);
@@ -379,113 +380,9 @@ function Home(props) {
           </div>
         </div>
 
-        <div className="detailed-information">
-          <div className="container">
-            <div className="bio">
-              <h2 className="title">
-                Masha header <br /> & and details.
-              </h2>
-              <p>
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a bio. We should talk about how lovely Masha
-                is here but I don't know the appropriate terminology so I'll
-                just fill this space with a couple of facts. She knows Val from
-                the coffee shop, seems very pretty and talented and didn't say
-                my music was horrible. Woo, what a bio. We should talk about how
-                lovely Masha is here but I don't know the appropriate
-                terminology so I'll just fill this space with a couple of facts.
-                She knows Val from the coffee shop, seems very pretty and
-                talented and didn't say my music was horrible. Woo, what a bio.
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a bio. We should talk about how lovely Masha
-                is here but I don't know the appropriate terminology so I'll
-                just fill this space with a couple of facts. She knows Val from
-                the coffee shop, seems very pretty and talented and didn't say
-                my music was horrible. Woo, what a bio. We should talk about how
-                lovely Masha is here but I don't know the appropriate
-                terminology so I'll just fill this space with a couple of facts.
-                She knows Val from the coffee shop, seems very pretty and
-                talented and didn't say my music was horrible. Woo, what a bio.
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a bio. We should talk about how lovely Masha
-                is here but I don't know the appropriate terminology so I'll
-                just fill this space with a couple of facts. She knows Val from
-                the coffee shop, seems very pretty and talented and didn't say
-                my music was horrible. Woo, what a bio. We should talk about how
-                lovely Masha is here but I don't know the appropriate
-                terminology so I'll just fill this space with a couple of facts.
-                She knows Val from the coffee shop, seems very pretty and
-                talented and didn't say my music was horrible. Woo, what a bio.
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a bio. We should talk about how lovely Masha
-                is here but I don't know the appropriate terminology so I'll
-                just fill this space with a couple of facts. She knows Val from
-                the coffee shop, seems very pretty and talented and didn't say
-                my music was horrible. Woo, what a bio. We should talk about how
-                lovely Masha is here but I don't know the appropriate
-                terminology so I'll just fill this space with a couple of facts.
-                She knows Val from the coffee shop, seems very pretty and
-                talented and didn't say my music was horrible. Woo, what a bio.
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a bio. We should talk about how lovely Masha
-                is here but I don't know the appropriate terminology so I'll
-                just fill this space with a couple of facts. She knows Val from
-                the coffee shop, seems very pretty and talented and didn't say
-                my music was horrible. Woo, what a bio. We should talk about how
-                lovely Masha is here but I don't know the appropriate
-                terminology so I'll just fill this space with a couple of facts.
-                She knows Val from the coffee shop, seems very pretty and
-                talented and didn't say my music was horrible. Woo, what a bio.
-                We should talk about how lovely Masha is here but I don't know
-                the appropriate terminology so I'll just fill this space with a
-                couple of facts. She knows Val from the coffee shop, seems very
-                pretty and talented and didn't say my music was horrible. Woo,
-                what a bio. We should talk about how lovely Masha is here but I
-                don't know the appropriate terminology so I'll just fill this
-                space with a couple of facts. She knows Val from the coffee
-                shop, seems very pretty and talented and didn't say my music was
-                horrible. Woo, what a
-              </p>
-            </div>
-          </div>
-        </div>
-
         <GalleryControl />
+
+        <CompCard />
         <Contact />
         <Footer />
 

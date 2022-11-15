@@ -25,9 +25,8 @@ const Contact = () => {
     <section id="contact">
       <div className="contact__container">
         <div className="contact_hi">
-          <h2>contact me</h2>
+          <h2>contact </h2>
           <br />
-          <h5>get in touch</h5>
         </div>
         {/* <div className="contact__options">
           <article className="contact__option">

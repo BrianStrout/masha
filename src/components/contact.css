@@ -9,14 +9,16 @@
 
 #contact {
   width: 100vw;
+  height: 100vh;
   padding: 1vw;
   display: flex;
   justify-content: center;
-  /* background-color: yellow; */
+  align-items: center;
+  background-color: var(--backColor);
 }
 
 .contact__container {
-  width: 100%;
+  width: 50vw;
   display: grid;
   align-items: start;
   /* grid-template-columns: 30% 70%; */
@@ -86,6 +88,9 @@ textarea {
   border: 2px solid var(--acct2);
   resize: none;
   color: var(--color-white);
+}
+textarea {
+  width: 100%;
 }
 
 #subButton {

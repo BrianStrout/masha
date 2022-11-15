@@ -40,8 +40,8 @@ export const dropUpVariants = {
     transition: {
       // delay: 5,
       type: "spring",
-      stiffness: 100,
-      mass: 0.3,
+      // stiffness: 100,
+      // mass: 0.3,
       // remove delay: 0.3,
     },
   },
@@ -217,7 +217,7 @@ export default function BusinessCard() {
           className="bcTitleDet"
         >
           <GrLocationPin /> Lisbon based
-        </motion.span>{" "}
+        </motion.span>
         <br />
         <motion.span
           variants={dropUpVariants2}
@@ -242,7 +242,7 @@ export default function BusinessCard() {
           className="bcTitleDet"
         >
           Email:asd form
-        </motion.span>{" "}
+        </motion.span>
         <motion.span
           variants={dropUpVariants2}
           key={"cc"}
@@ -266,10 +266,9 @@ export default function BusinessCard() {
           className="bcTitleDet"
         >
           <Link to="https://www.instagram.com/highmashion/?hl=en">
-            {" "}
             <SiInstagram />
             @highmashion
-          </Link>{" "}
+          </Link>
         </motion.span>
         <br />
         <br />
@@ -283,7 +282,6 @@ export default function BusinessCard() {
           className="bcTitleDet"
         >
           <Link to="https://www.vsco.co/">
-            {" "}
             <SiVsco />
             @highmashion
           </Link>
