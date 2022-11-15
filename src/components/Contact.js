@@ -23,20 +23,20 @@ const Contact = () => {
   };
   return (
     <section id="contact">
-      <div className="container contact__container">
+      <div className="contact__container">
         <div className="contact_hi">
           <h2>contact me</h2>
           <br />
           <h5>get in touch</h5>
         </div>
-        <div className="contact__options">
+        {/* <div className="contact__options">
           <article className="contact__option">
             <RiMessengerLine />
             <h4>fb/if messenger</h4>
             <h5>brian's facebook</h5>
             <a href="https://m.me/brian.strout">message me</a>
           </article>
-        </div>
+        </div> */}
 
         <form ref={form} onSubmit={sendEmail}>
           <input

@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../App.css";
 
-function Home({ imageDim, image }) {
+function Home(props) {
+  console.log("incoming props: " + props.isMobile);
+  const mobile = props.isMobile;
   // const transition = { duration: 1.6, ease: [0.43, 0.13, 0.23, 0.96] };
-  const imageDetails = {
-    width: 524,
-    height: 650,
-  };
+  const imageDetails = mobile
+    ? { width: "90vw", height: "90vw" }
+    : { width: 524, height: 650 };
   const viewPull = document.documentElement.clientHeight;
 
   // the dom height divided by two - dom height / 10 meaning 0.4 original height
@@ -27,7 +28,7 @@ function Home({ imageDim, image }) {
         <div className="bottom">
           <motion.div
             className="thumbnail"
-            ref={image}
+            // ref={image}
             style={{
               width: imageDetails.width,
               height: viewCalc,

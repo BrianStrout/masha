@@ -8,7 +8,9 @@ import Contact from "./Contact";
 import "../App.css";
 import { Footer } from "./Footer";
 
-function Home({ imageDim, image }) {
+function Home(props) {
+  console.log("incoming props: " + props.isMobile);
+  const mobile = props.isMobile;
   useEffect(() => {
     let handler = (e) => {
       if (e.target.classList.contains("Display_Item_Photo")) {
@@ -17,13 +19,10 @@ function Home({ imageDim, image }) {
     };
     document.addEventListener("mousedown", handler);
   });
-
   const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
-  const imageDetails = {
-    width: 524,
-    height: 650,
-  };
-
+  const imageDetails = mobile
+    ? { width: "90vw", height: "90vw" }
+    : { width: 524, height: 650 };
   const viewPull = document.documentElement.clientHeight;
   const viewCalc = viewPull / 2 - viewPull * 0.1;
   const viewBump = document.documentElement.clientHeight / 10;
@@ -47,13 +46,22 @@ function Home({ imageDim, image }) {
 
   const { scrollYProgress } = useScroll();
   const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const variableForScrollMobile = useTransform(
+    scrollYProgress,
+    [0, 0.15],
+    [1, 0]
+  );
+  const variableForScrollDesk = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const chooseScrollVariable = mobile
+    ? variableForScrollMobile
+    : variableForScrollDesk;
 
   const firstName = {
     initial: {
       y: 120,
     },
     animate: {
-      y: 120,
+      y: mobile ? 95 : 120,
       transition: {
         // duration: 1,
         delayChildren: 1.5,
@@ -131,12 +139,15 @@ function Home({ imageDim, image }) {
   const scrolling = {
     initial: {
       x: 250,
+      opacity: 1,
     },
     animate: {
       x: 0,
+      // y: [0, 0, 0, 0, 0, -40],
+      // opacity: [1, 1, 1, 1, 1, 0],
       transition: {
         // delay: 1,
-        duration: 0.8,
+        duration: 1,
         // repeat: Infinity,
       },
     },
@@ -161,14 +172,10 @@ function Home({ imageDim, image }) {
       },
     },
   };
-  // const assembled = <GalleryAlbums />;
 
-  // console.log(assembled);
-  // console.log(viewCalc, "calculated2");
   return (
     <>
       <motion.div
-        onAnimationComplete={() => setCanScroll(true)}
         className="single"
         initial="initial"
         animate="animate"
@@ -178,7 +185,11 @@ function Home({ imageDim, image }) {
         <div className="container fluid">
           <div className="row center top-row">
             <div className="top">
-              <motion.div className="quoter" variants={fader}>
+              <motion.div
+                className="quoter"
+                variants={fader}
+                onAnimationComplete={() => setCanScroll(true)}
+              >
                 <motion.span variants={fadey}>Lisbon </motion.span>
                 <motion.span variants={fadey}>based </motion.span>
                 <motion.span variants={fadey}>model</motion.span>
@@ -264,7 +275,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -274,7 +285,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -284,7 +295,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -294,7 +305,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -304,7 +315,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -314,7 +325,7 @@ function Home({ imageDim, image }) {
                 <motion.span
                   style={{
                     display: "inline-block",
-                    opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
+                    opacity: chooseScrollVariable,
                     // opacity: ".50",
                   }}
                   variants={scrolling}
@@ -326,7 +337,7 @@ function Home({ imageDim, image }) {
               <motion.div className="image-container-single">
                 <motion.div
                   className="thumbnail"
-                  ref={image}
+                  // ref={image}
                   initial={{
                     y: -viewCalc,
                     width: imageDetails.width,
@@ -353,7 +364,7 @@ function Home({ imageDim, image }) {
                         y: 0,
                       }}
                       animate={{
-                        y: -700,
+                        y: mobile ? -100 : -700,
                         // y: 400,
                         width: "100vw",
                         z: -1,
@@ -379,7 +390,96 @@ function Home({ imageDim, image }) {
                 the appropriate terminology so I'll just fill this space with a
                 couple of facts. She knows Val from the coffee shop, seems very
                 pretty and talented and didn't say my music was horrible. Woo,
-                what a bio.
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a bio. We should talk about how lovely Masha
+                is here but I don't know the appropriate terminology so I'll
+                just fill this space with a couple of facts. She knows Val from
+                the coffee shop, seems very pretty and talented and didn't say
+                my music was horrible. Woo, what a bio. We should talk about how
+                lovely Masha is here but I don't know the appropriate
+                terminology so I'll just fill this space with a couple of facts.
+                She knows Val from the coffee shop, seems very pretty and
+                talented and didn't say my music was horrible. Woo, what a bio.
+                We should talk about how lovely Masha is here but I don't know
+                the appropriate terminology so I'll just fill this space with a
+                couple of facts. She knows Val from the coffee shop, seems very
+                pretty and talented and didn't say my music was horrible. Woo,
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a bio. We should talk about how lovely Masha
+                is here but I don't know the appropriate terminology so I'll
+                just fill this space with a couple of facts. She knows Val from
+                the coffee shop, seems very pretty and talented and didn't say
+                my music was horrible. Woo, what a bio. We should talk about how
+                lovely Masha is here but I don't know the appropriate
+                terminology so I'll just fill this space with a couple of facts.
+                She knows Val from the coffee shop, seems very pretty and
+                talented and didn't say my music was horrible. Woo, what a bio.
+                We should talk about how lovely Masha is here but I don't know
+                the appropriate terminology so I'll just fill this space with a
+                couple of facts. She knows Val from the coffee shop, seems very
+                pretty and talented and didn't say my music was horrible. Woo,
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a bio. We should talk about how lovely Masha
+                is here but I don't know the appropriate terminology so I'll
+                just fill this space with a couple of facts. She knows Val from
+                the coffee shop, seems very pretty and talented and didn't say
+                my music was horrible. Woo, what a bio. We should talk about how
+                lovely Masha is here but I don't know the appropriate
+                terminology so I'll just fill this space with a couple of facts.
+                She knows Val from the coffee shop, seems very pretty and
+                talented and didn't say my music was horrible. Woo, what a bio.
+                We should talk about how lovely Masha is here but I don't know
+                the appropriate terminology so I'll just fill this space with a
+                couple of facts. She knows Val from the coffee shop, seems very
+                pretty and talented and didn't say my music was horrible. Woo,
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a bio. We should talk about how lovely Masha
+                is here but I don't know the appropriate terminology so I'll
+                just fill this space with a couple of facts. She knows Val from
+                the coffee shop, seems very pretty and talented and didn't say
+                my music was horrible. Woo, what a bio. We should talk about how
+                lovely Masha is here but I don't know the appropriate
+                terminology so I'll just fill this space with a couple of facts.
+                She knows Val from the coffee shop, seems very pretty and
+                talented and didn't say my music was horrible. Woo, what a bio.
+                We should talk about how lovely Masha is here but I don't know
+                the appropriate terminology so I'll just fill this space with a
+                couple of facts. She knows Val from the coffee shop, seems very
+                pretty and talented and didn't say my music was horrible. Woo,
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a bio. We should talk about how lovely Masha
+                is here but I don't know the appropriate terminology so I'll
+                just fill this space with a couple of facts. She knows Val from
+                the coffee shop, seems very pretty and talented and didn't say
+                my music was horrible. Woo, what a bio. We should talk about how
+                lovely Masha is here but I don't know the appropriate
+                terminology so I'll just fill this space with a couple of facts.
+                She knows Val from the coffee shop, seems very pretty and
+                talented and didn't say my music was horrible. Woo, what a bio.
+                We should talk about how lovely Masha is here but I don't know
+                the appropriate terminology so I'll just fill this space with a
+                couple of facts. She knows Val from the coffee shop, seems very
+                pretty and talented and didn't say my music was horrible. Woo,
+                what a bio. We should talk about how lovely Masha is here but I
+                don't know the appropriate terminology so I'll just fill this
+                space with a couple of facts. She knows Val from the coffee
+                shop, seems very pretty and talented and didn't say my music was
+                horrible. Woo, what a
               </p>
             </div>
           </div>

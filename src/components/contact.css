@@ -1,18 +1,29 @@
+:root {
+  --imgCalc: calc(50vh-128px);
+  --backColor: #e2e3d4;
+  --acctColor: #eeefe0;
+  --acct1: #9f523f;
+  --acct2: #bb8248;
+  --acct3: #cb9d72;
+}
+
 #contact {
   width: 100vw;
+  padding: 1vw;
   display: flex;
   justify-content: center;
   /* background-color: yellow; */
 }
 
 .contact__container {
-  width: 58%;
+  width: 100%;
   display: grid;
   align-items: start;
-  grid-template-columns: 30% 70%;
+  /* grid-template-columns: 30% 70%; */
+  grid-template-rows: 10% 90%;
   grid-template-areas:
-    "contacthi contacthi"
-    "buttons    form";
+    "contacthi"
+    "form";
 }
 .contact_hi {
   grid-area: contacthi;
@@ -72,7 +83,7 @@ textarea {
   padding: 1.5rem;
   border-radius: 0.5rem;
   background: transparent;
-  border: 2px solid var(--color-primary-variant);
+  border: 2px solid var(--acct2);
   resize: none;
   color: var(--color-white);
 }
@@ -90,15 +101,20 @@ textarea {
   scale: 102%;
 }
 
-@media screen and (max-width: 1024px) {
-  .container.contact__container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
 @media screen and (max-width: 600px) {
-  .container.contact__container {
-    width: var(--container-wiodth-sm);
+  .contact__container {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10vh;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--acct2);
+    resize: none;
+    /* color: var(--color-white); */
   }
 }
