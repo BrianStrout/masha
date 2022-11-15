@@ -183,208 +183,220 @@ function Home(props) {
         exit="exit"
       >
         {/* beginner */}
-        <div className="container fluid">
-          <div className="row center top-row">
-            <div className="top">
-              <motion.div
-                className="quoter"
-                variants={fader}
-                onAnimationComplete={() => setCanScroll(true)}
-              >
-                <motion.span variants={fadey}>Lisbon </motion.span>
-                <motion.span variants={fadey}>based </motion.span>
-                <motion.span variants={fadey}>model</motion.span>
-              </motion.div>
+        <div className="scroll_click">
+          <div className="container fluid">
+            <div className="row center top-row">
+              <div className="top">
+                <motion.div
+                  className="quoter"
+                  variants={fader}
+                  onAnimationComplete={() => setCanScroll(true)}
+                >
+                  <motion.span variants={fadey}>Lisbon </motion.span>
+                  <motion.span variants={fadey}>based </motion.span>
+                  <motion.span variants={fadey}>model</motion.span>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: 1.2, ...transition },
-                }}
-                className="details"
-              >
-                <div className="blocker">
-                  <motion.div className="location" variants={dropper}>
-                    <motion.span
-                      style={{ display: "inline-block", color: "var(--acct1)" }}
-                      variants={droppingIn}
-                    >
-                      {"38.7223° N "}
-                    </motion.span>
-                    {/* <motion.span variants={droppingIn}></motion.span> */}
-                    <motion.span
-                      style={{ display: "inline-block", color: "var(--acct2)" }}
-                      variants={droppingIn}
-                    >
-                      9.1393° W
-                    </motion.span>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 1.2, ...transition },
+                  }}
+                  className="details"
+                >
+                  <div className="blocker">
+                    <motion.div className="location" variants={dropper}>
+                      <motion.span
+                        style={{
+                          display: "inline-block",
+                          color: "var(--acct1)",
+                        }}
+                        variants={droppingIn}
+                      >
+                        {"38.7223° N "}
+                      </motion.span>
+                      {/* <motion.span variants={droppingIn}></motion.span> */}
+                      <motion.span
+                        style={{
+                          display: "inline-block",
+                          color: "var(--acct2)",
+                        }}
+                        variants={droppingIn}
+                      >
+                        9.1393° W
+                      </motion.span>
 
+                      <motion.span
+                        style={{ display: "block" }}
+                        variants={droppingIn}
+                      >
+                        Contact:clickable
+                      </motion.span>
+                    </motion.div>
+                  </div>
+                </motion.div>
+                <motion.div className="model">
+                  <motion.span className="first" variants={firstName}>
                     <motion.span
-                      style={{ display: "block" }}
-                      variants={droppingIn}
+                      style={{ display: "inline-block" }}
+                      variants={letter}
                     >
-                      Contact:clickable
+                      M
                     </motion.span>
-                  </motion.div>
-                </div>
-              </motion.div>
-              <motion.div className="model">
-                <motion.span className="first" variants={firstName}>
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
-                  >
-                    M
+                    <motion.span
+                      style={{ display: "inline-block" }}
+                      variants={letter}
+                    >
+                      A
+                    </motion.span>
+                    <motion.span
+                      style={{ display: "inline-block" }}
+                      variants={letter}
+                    >
+                      S
+                    </motion.span>
+                    <motion.span
+                      style={{ display: "inline-block" }}
+                      variants={letter}
+                    >
+                      H
+                    </motion.span>
+                    <motion.span
+                      style={{ display: "inline-block" }}
+                      variants={letter}
+                    >
+                      A
+                    </motion.span>
                   </motion.span>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* MIDWAY */}
+
+            <div className="row bottom-row">
+              <div className="bottom">
+                {/* SCROLL */}
+                <motion.div className="scrollDown" variants={scroller}>
                   <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
-                  >
-                    A
-                  </motion.span>
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
                   >
                     S
                   </motion.span>
                   <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
                   >
-                    H
+                    C
                   </motion.span>
                   <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
                   >
-                    A
+                    R
                   </motion.span>
-                </motion.span>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* MIDWAY */}
-
-          <div className="row bottom-row">
-            <div className="bottom">
-              {/* SCROLL */}
-              <motion.div className="scrollDown" variants={scroller}>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  S
-                </motion.span>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  C
-                </motion.span>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  R
-                </motion.span>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  O
-                </motion.span>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  L
-                </motion.span>
-                <motion.span
-                  style={{
-                    display: "inline-block",
-                    opacity: chooseScrollVariable,
-                    // opacity: ".50",
-                  }}
-                  variants={scrolling}
-                >
-                  L
-                </motion.span>
-              </motion.div>
-
-              <motion.div className="image-container-single">
-                <motion.div
-                  className="thumbnail"
-                  // ref={image}
-                  initial={{
-                    y: -viewCalc,
-                    width: imageDetails.width,
-                    height: viewCalc,
-                  }}
-                  animate={{
-                    y: viewBump,
-                    width: "100vw",
-                    height: viewCalc,
-                    transition: { delay: 0.8, ...transition },
-                  }}
-                >
-                  <div className="frame">
-                    <motion.img
-                      className="imageScaled"
-                      style={{
-                        scale: yScaled,
-                      }}
-                      src={Masha}
-                      alt="Masha"
-                      transition={transition}
-                      initial={{
-                        width: imageDetails.width,
-                        y: 0,
-                      }}
-                      animate={{
-                        y: mobile ? -100 : -700,
-                        // y: 400,
-                        width: "100vw",
-                        z: -1,
-                        transition: { delay: 0.8, ...transition },
-                        // y: window.innerWidth > 1440 ? 40 : 0,
-                      }}
-                    />
-                  </div>
+                  <motion.span
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
+                  >
+                    O
+                  </motion.span>
+                  <motion.span
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
+                  >
+                    L
+                  </motion.span>
+                  <motion.span
+                    style={{
+                      display: "inline-block",
+                      opacity: chooseScrollVariable,
+                      // opacity: ".50",
+                    }}
+                    variants={scrolling}
+                  >
+                    L
+                  </motion.span>
                 </motion.div>
-              </motion.div>
+
+                <motion.div className="image-container-single">
+                  <motion.div
+                    className="thumbnail"
+                    // ref={image}
+                    initial={{
+                      y: -viewCalc,
+                      width: imageDetails.width,
+                      height: viewCalc,
+                    }}
+                    animate={{
+                      y: viewBump,
+                      width: "100vw",
+                      height: viewCalc,
+                      transition: { delay: 0.8, ...transition },
+                    }}
+                  >
+                    <div className="frame">
+                      <motion.img
+                        className="imageScaled"
+                        style={{
+                          scale: yScaled,
+                        }}
+                        src={Masha}
+                        alt="Masha"
+                        transition={transition}
+                        initial={{
+                          width: imageDetails.width,
+                          y: 0,
+                        }}
+                        animate={{
+                          y: mobile ? -100 : -700,
+                          // y: 400,
+                          width: "100vw",
+                          z: -1,
+                          transition: { delay: 0.8, ...transition },
+                          // y: window.innerWidth > 1440 ? 40 : 0,
+                        }}
+                      />
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
-
-        <GalleryControl />
-
-        <CompCard />
-        <Contact />
-        <Footer />
+        <div className="scroll_click">
+          <GalleryControl />
+        </div>
+        <div className="scroll_click">
+          <CompCard />
+        </div>
+        <div className="scroll_click">
+          <Contact />
+          <Footer />
+        </div>
 
         {/* ender */}
       </motion.div>
