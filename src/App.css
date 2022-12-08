@@ -37,7 +37,6 @@ body {
 
 .comp_card_container {
   background-color: var(--backColor);
-  padding-top: 19vh;
 }
 
 circle,
@@ -358,18 +357,52 @@ line {
   /* margin-top: 5rem; */
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 990px) {
   .top {
-    background-color: var(--backColor);
     height: 40vh;
   }
   .model > span {
-    font-size: 64px;
+    font-size: 95px;
+    /* color: #de17cd; */
+  }
+  .blocker {
+    position: relative;
+    top: -30px;
+  }
+  .first {
+    position: relative;
+    top: -20px;
+  }
+
+  .location > span {
+    font-size: 0.75rem;
+    padding-left: 1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .top {
+    background-color: var(--backColor);
+    /* background-color: #bb8248; */
+    height: 40vh;
+  }
+  .model > span {
+    font-size: 60px;
+    /* color: #de17cd; */
+  }
+  .blocker {
+    position: relative;
+    top: -20px;
+  }
+  .first {
+    position: relative;
+    top: -20px;
   }
 
   .location > span {
     font-size: 0.75rem;
     padding: 0rem;
+    padding-left: 0.25rem;
   }
 }
 
