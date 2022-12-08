@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Masha from "../images/masha_insta.jpeg";
 import GalleryControl from "./GalleryControl";
@@ -10,7 +11,84 @@ import { Footer } from "./Footer";
 import CompCard from "./CompCard";
 
 function Home(props) {
-  console.log("incoming props: " + props.isMobile);
+  // console.log(props);
+  const shell = useRef(null);
+  const scrollable = document.documentElement.scrollHeight;
+  const currentScroll = window.scrollY;
+
+  function colorMixer(incomingPercent) {
+    console.log("coloring,..?");
+
+    let color1 = parseInt("e2e3d4", 16);
+    let color2 = parseInt("9f523f", 16);
+    let colorRange = (color1 - color2) / 100;
+    let initMix = incomingPercent * colorRange;
+    let numberMix = Math.round(initMix + color2);
+    let hexMix = numberMix.toString(16);
+    let finalMix = `#${hexMix}`;
+    console.log(finalMix);
+    props.setHeadColor(finalMix);
+  }
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      let scrolledFromTop = event.srcElement.scrollTop;
+      let scrollOfVh = event.srcElement.clientHeight;
+      let totalScrollPot = 4 * scrollOfVh;
+      let scrollPercentRaw = (scrolledFromTop / totalScrollPot) * 100;
+      let scrollPercentRounded = Math.round(scrollPercentRaw);
+      let scrollAdjuster = 25;
+
+      //  let i = scrollPercentRounded;
+
+      //   let sc = i *2;
+
+      if (scrollPercentRounded < 25) {
+        scrollAdjuster = 0;
+      } else if (scrollPercentRounded > 75) {
+        scrollAdjuster = 100;
+      } else {
+        scrollAdjuster = (scrollPercentRounded - 25) * 2;
+      }
+
+      let scrollAdjustedOpacity = 100 - scrollAdjuster;
+
+      // console.log(scrollAdjuster + "  adjuster");
+      // if its less than 25 = 25
+
+      // let scrollAdjustedOpacity = "10%";
+
+      // if its more than 75 = 75
+
+      // 1unit times .5
+
+      // let minus = scrollPercentRounded-25
+
+      // let
+
+      // .75 + 25
+
+      // console.log(scrollPercentRounded);
+      if (scrollPercentRounded < 25) {
+        // console.log("24 and down");
+        props.setMainHeadOpacity(0);
+        props.setSubHeadOpacity(0);
+        props.setTuckedLeft(true);
+      } else {
+        props.setMainHeadOpacity(100);
+        props.setSubHeadOpacity(`${scrollAdjustedOpacity}%`);
+        props.setTuckedLeft(false);
+      }
+    };
+    const element = shell.current;
+    element.addEventListener("scroll", handleClick);
+    return () => {
+      element.removeEventListener("scroll", handleClick);
+    };
+    // });
+  }, []);
+
+  // console.log("incoming props: " + props.isMobile);
   const mobile = props.isMobile;
   useEffect(() => {
     let handler = (e) => {
@@ -38,9 +116,9 @@ function Home(props) {
 
   React.useEffect(() => {
     if (canScroll === false) {
-      document.querySelector("body").classList.add("no-scroll");
+      document.querySelector(".single").classList.add("no-scroll");
     } else {
-      document.querySelector("body").classList.remove("no-scroll");
+      document.querySelector(".single").classList.remove("no-scroll");
       introducer(true);
     }
   }, [canScroll]);
@@ -181,6 +259,7 @@ function Home(props) {
         initial="initial"
         animate="animate"
         exit="exit"
+        ref={shell}
       >
         {/* beginner */}
         <div className="scroll_click">
@@ -361,9 +440,9 @@ function Home(props) {
                     <div className="frame">
                       <motion.img
                         className="imageScaled"
-                        style={{
-                          scale: yScaled,
-                        }}
+                        // style={{
+                        //   scale: yScaled,
+                        // }}
                         src={Masha}
                         alt="Masha"
                         transition={transition}

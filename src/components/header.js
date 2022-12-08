@@ -25,14 +25,15 @@ const draw = {
   },
 };
 
-const Header = () => {
+const Header = (props) => {
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
 
   useEffect(() => {
     let handler = (e) => {
-      console.log("hadnler coming");
+      console.log("handler coming");
+      // console.log(scrollYProgress);
       if (!menuRef.current.contains(e.target)) {
         setOpen(false);
       }
@@ -44,24 +45,30 @@ const Header = () => {
     };
   });
 
-  const { scrollYProgress } = useScroll();
-  const yScaled = useTransform(scrollYProgress, [0.2, 1], [1, 0]);
-  const yScaled2 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
+  // const { scrollYProgress } = useScroll();
+  // const yScaled = useTransform(scrollYProgress, [0.2, 1], [1, 0]);
+  // const yScaled2 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
 
   return (
     <>
-      <div id="findMe" className="hide">
-        <motion.div className="header" style={{ opacity: 1 }}></motion.div>
+      <div id="findMe">
         <motion.div
-          className="header header2"
-          style={{ opacity: yScaled }}
+          className="header"
+          style={{ opacity: `${props.subHeadOpacity}` }}
+        ></motion.div>
+        <motion.div
+          className="header2"
+          style={{
+            // backgroundColor: `${props.headColor}`,
+            opacity: `${props.mainHeadOpacity}%`,
+            color: "black",
+          }}
         ></motion.div>
         <motion.div className="headerIn">
           <motion.h2
-            id="smallName"
+            className={`smallName ${props.tuckedLeft ? `tuckedLeft` : ""}`}
             style={{
-              opacity: yScaled2,
-              // opacity: ".50",
+              opacity: 100,
             }}
           >
             Masha
