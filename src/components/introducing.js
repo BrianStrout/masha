@@ -11,24 +11,8 @@ import { Footer } from "./Footer";
 import CompCard from "./CompCard";
 
 function Home(props) {
-  // console.log(props);
   const shell = useRef(null);
-  const scrollable = document.documentElement.scrollHeight;
-  const currentScroll = window.scrollY;
-
-  function colorMixer(incomingPercent) {
-    console.log("coloring,..?");
-
-    let color1 = parseInt("e2e3d4", 16);
-    let color2 = parseInt("9f523f", 16);
-    let colorRange = (color1 - color2) / 100;
-    let initMix = incomingPercent * colorRange;
-    let numberMix = Math.round(initMix + color2);
-    let hexMix = numberMix.toString(16);
-    let finalMix = `#${hexMix}`;
-    console.log(finalMix);
-    props.setHeadColor(finalMix);
-  }
+  const textOpacity = props.variableForScrollDesk;
 
   useEffect(() => {
     const handleClick = (event) => {
@@ -38,62 +22,55 @@ function Home(props) {
       let scrollPercentRaw = (scrolledFromTop / totalScrollPot) * 100;
       let scrollPercentRounded = Math.round(scrollPercentRaw);
       let scrollAdjuster = 25;
-
-      //  let i = scrollPercentRounded;
-
-      //   let sc = i *2;
+      let scrollAdjuster2 = 100;
 
       if (scrollPercentRounded < 25) {
         scrollAdjuster = 0;
+        scrollAdjuster2 = 100 - scrollPercentRounded * 16;
       } else if (scrollPercentRounded > 75) {
         scrollAdjuster = 100;
+        scrollAdjuster2 = 0;
       } else {
         scrollAdjuster = (scrollPercentRounded - 25) * 2;
+        scrollAdjuster2 = 0;
       }
+      let scrollAdjustedOpacity1 = 100 - scrollAdjuster;
+      let scrollAdjustedOpacity2 = scrollAdjustedOpacity1 / 100;
+      let scrollAdjustedOpacity3 = scrollAdjuster2 / 100;
 
-      let scrollAdjustedOpacity = 100 - scrollAdjuster;
+      console.log(scrollAdjustedOpacity2);
 
-      // console.log(scrollAdjuster + "  adjuster");
-      // if its less than 25 = 25
+      props.setSubHeadOpacity(scrollAdjustedOpacity2);
+      props.setVariableForScrollDesk(scrollAdjustedOpacity3);
 
-      // let scrollAdjustedOpacity = "10%";
+      console.log("scroll adjusted " + scrollAdjustedOpacity2);
+      // console.log("text ad " + textAdjuster);
+      console.log("var " + props.variableForScrollDesk);
 
-      // if its more than 75 = 75
-
-      // 1unit times .5
-
-      // let minus = scrollPercentRounded-25
-
-      // let
-
-      // .75 + 25
-
-      // console.log(scrollPercentRounded);
       if (scrollPercentRounded < 25) {
-        // console.log("24 and down");
         props.setMainHeadOpacity(0);
         props.setSubHeadOpacity(0);
         props.setTuckedLeft(true);
+        // props.setVariableForScrollDesk(12);
       } else {
         props.setMainHeadOpacity(100);
-        props.setSubHeadOpacity(`${scrollAdjustedOpacity}%`);
+        props.setSubHeadOpacity(scrollAdjustedOpacity2);
         props.setTuckedLeft(false);
+        // props.setVariableForScrollDesk(40);
       }
     };
+
     const element = shell.current;
     element.addEventListener("scroll", handleClick);
     return () => {
       element.removeEventListener("scroll", handleClick);
     };
-    // });
-  }, []);
+  });
 
-  // console.log("incoming props: " + props.isMobile);
   const mobile = props.isMobile;
   useEffect(() => {
     let handler = (e) => {
       if (e.target.classList.contains("Display_Item_Photo")) {
-        // console.log("hit");
       }
     };
     document.addEventListener("mousedown", handler);
@@ -108,11 +85,11 @@ function Home(props) {
   const [canScroll, setCanScroll] = useState(false);
   const [introduced, introducer] = useState(false);
 
-  React.useEffect(() => {
-    if (introduced === true) {
-      document.getElementById("findMe").classList.remove("hide");
-    }
-  }, [introduced]);
+  // React.useEffect(() => {
+  //   if (introduced === true) {
+  //     document.getElementById("findMe").classList.remove("hide");
+  //   }
+  // }, [introduced]);
 
   React.useEffect(() => {
     if (canScroll === false) {
@@ -124,16 +101,19 @@ function Home(props) {
   }, [canScroll]);
 
   const { scrollYProgress } = useScroll();
-  const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  // const yScaled = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+
   const variableForScrollMobile = useTransform(
     scrollYProgress,
     [0, 0.15],
     [1, 0]
   );
-  const variableForScrollDesk = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const chooseScrollVariable = mobile
-    ? variableForScrollMobile
-    : variableForScrollDesk;
+
+  // const chooseScrollVariable = mobile
+  //   ? variableForScrollMobile
+  //   : { props.variableForScrollDesk };
+
+  const chooseScrollVariable = mobile ? variableForScrollMobile : textOpacity;
 
   const firstName = {
     initial: {
@@ -222,11 +202,12 @@ function Home(props) {
     },
     animate: {
       x: 0,
+      opacity: textOpacity,
       // y: [0, 0, 0, 0, 0, -40],
-      // opacity: [1, 1, 1, 1, 1, 0],
+      // opacity: [1, 1, 1, 1, 0],
       transition: {
         // delay: 1,
-        duration: 1,
+        duration: 2,
         // repeat: Infinity,
       },
     },
@@ -251,6 +232,8 @@ function Home(props) {
       },
     },
   };
+
+  console.log("to" + textOpacity);
 
   return (
     <>
@@ -279,7 +262,7 @@ function Home(props) {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{
-                    opacity: 1,
+                    opacity: textOpacity,
                     y: 0,
                     transition: { delay: 1.2, ...transition },
                   }}
@@ -311,7 +294,7 @@ function Home(props) {
                         style={{ display: "block" }}
                         variants={droppingIn}
                       >
-                        Contact:clickable
+                        Lisbon & London
                       </motion.span>
                     </motion.div>
                   </div>
@@ -358,11 +341,15 @@ function Home(props) {
             <div className="row bottom-row">
               <div className="bottom">
                 {/* SCROLL */}
-                <motion.div className="scrollDown" variants={scroller}>
+                <motion.div
+                  className="scrollDown"
+                  variants={scroller}
+                  style={{ opacity: textOpacity }}
+                >
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+
                       // opacity: ".50",
                     }}
                     variants={scrolling}
@@ -372,7 +359,7 @@ function Home(props) {
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+                      // opacity: chooseScrollVariable,
                       // opacity: ".50",
                     }}
                     variants={scrolling}
@@ -382,7 +369,7 @@ function Home(props) {
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+                      // opacity: chooseScrollVariable,
                       // opacity: ".50",
                     }}
                     variants={scrolling}
@@ -392,7 +379,7 @@ function Home(props) {
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+                      // opacity: chooseScrollVariable,
                       // opacity: ".50",
                     }}
                     variants={scrolling}
@@ -402,7 +389,7 @@ function Home(props) {
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+                      // opacity: chooseScrollVariable,
                       // opacity: ".50",
                     }}
                     variants={scrolling}
@@ -412,7 +399,7 @@ function Home(props) {
                   <motion.span
                     style={{
                       display: "inline-block",
-                      opacity: chooseScrollVariable,
+                      // opacity: chooseScrollVariable,
                       // opacity: ".50",
                     }}
                     variants={scrolling}

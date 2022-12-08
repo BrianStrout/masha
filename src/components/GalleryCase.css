@@ -39,6 +39,7 @@
   min-height: 90vh;
   background-color: transparent;
   padding: 5vh;
+  padding-top: 9vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,12 +58,15 @@
   position: relative;
   display: grid;
   grid-template-rows: 90% 1fr;
+  border-radius: 3px;
 }
 
 .Display_Item_Photo {
   /* background-color: aquamarine; */
   position: relative;
   /* height: 300px; */
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .Merch_Item_Image {
@@ -77,14 +81,28 @@
 }
 
 .focus_tab {
+  margin-top: 1rem;
+  /* opacity: 0.8; */
   width: 70px;
-  height: 105px;
+  height: 70px;
   border: 1px solid #9f523f;
-  border-radius: 1rem;
-  background-color: var(--acct2);
+  border-radius: 50%;
+  background-color: var(--backColor);
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: saturate(30%);
+}
+
+.focus_tab:hover {
+  opacity: 1;
+  scale: 1.1;
+  border-color: black;
+  filter: saturate(1);
+}
+
+.focus_tab_holder {
+  /* background-color: yellow; */
 }
 
 @media only screen and (max-width: 400px) {

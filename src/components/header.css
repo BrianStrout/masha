@@ -12,3 +12,8 @@
   width: 10rem;
   height: 10rem;
 }
+
+.tuckedLeft {
+  position: relative;
+  right: 1000px;
+}

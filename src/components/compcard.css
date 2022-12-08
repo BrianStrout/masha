@@ -9,13 +9,15 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  /* gap: 1rem; */
+  /* padding: 600px 0 0 0; */
+  /* padding-top: 19vh; */
 }
 
 .comp_card_main {
   width: 80vw;
-  /* height: 90vh; */
+  margin-top: 19vh;
+  height: 88vh;
   background-color: transparent;
   display: grid;
   grid-template-columns: 0.75fr 1fr;
@@ -23,6 +25,7 @@
 .comp_card_headshot {
   background-color: transparent;
   display: flex;
+  max-height: 85vh;
   justify-content: flex-end;
   align-items: flex-end;
   padding-bottom: 0.5rem;
