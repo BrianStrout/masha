@@ -14,7 +14,7 @@ export const containerVariants2 = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 1.2,
+      staggerChildren: 0.1,
       duration: 0.2,
     },
   },
@@ -23,7 +23,8 @@ export const containerVariants2 = {
     opacity: 0,
     transition: {
       when: "afterChildren",
-      duration: 5,
+      staggerChildren: 0.025,
+      duration: 0.2,
     },
   },
 };
@@ -40,14 +41,15 @@ export const dropUpVariants = {
     transition: {
       // delay: 5,
       type: "spring",
+      damping: 14,
       // stiffness: 100,
       // mass: 0.3,
       // remove delay: 0.3,
     },
   },
   exit: {
-    x: 0,
-    y: 400,
+    x: 400,
+    y: 0,
   },
 };
 
@@ -63,14 +65,15 @@ export const dropUpVariants2 = {
     opacity: 1,
     transition: {
       type: "spring",
+      damping: 14,
       stiffness: 100,
       mass: 0.3,
       // remove delay: 0.3,
     },
   },
   exit: {
-    x: 0,
-    y: 400,
+    x: 400,
+    y: 0,
     opacity: 0,
   },
 };
@@ -84,14 +87,15 @@ export const dropUpVariants3 = {
     opacity: 1,
     transition: {
       type: "spring",
+      damping: 14,
       stiffness: 100,
       mass: 0.3,
       // remove delay: 0.3,
     },
   },
   exit: {
-    x: 0,
-    y: 400,
+    x: 400,
+    opacity: 0,
   },
 };
 
@@ -105,188 +109,188 @@ export default function BusinessCard() {
       exit="exit"
       className="business_card"
     >
-      <AnimatePresence exitBeforeEnter>
-        <motion.h1
-          key={"businesscardName"}
-          variants={dropUpVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="bcTitle"
-        >
-          Masha
-        </motion.h1>
-        <motion.span
-          variants={dropUpVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          key={"a"}
-          style={{ display: "inline-block" }}
-          className="bcTitle"
-        >
-          Model
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants}
-          key={"aa"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitle"
-        >
-          &
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants}
-          key={"aaa"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitle"
-        >
-          Stylist
-        </motion.span>
-        <br />
-        <motion.span
-          variants={dropUpVariants}
-          key={"aaaa"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          Beauty
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants2}
-          key={"aaaaa"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          /
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants}
-          key={"b"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          Commercial{" "}
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants2}
-          key={"bb"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          /
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants}
-          key={"bbb"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          Editorial
-        </motion.span>
-        <br />
-        <br />
-        <motion.span
-          variants={dropUpVariants2}
-          key={"bbbb"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          <GrLocationPin /> Lisbon based
-        </motion.span>
-        <br />
-        <motion.span
-          variants={dropUpVariants2}
-          key={"bbbbb"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          <GrLocationPin />
-          London often
-        </motion.span>
-        <br />
-        <motion.span
-          variants={dropUpVariants2}
-          key={"c"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          Email:asd form
-        </motion.span>
-        <motion.span
-          variants={dropUpVariants2}
-          key={"cc"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet right"
-        >
-          form below
-        </motion.span>
-        <br />
-        <br />
-        <motion.span
-          variants={dropUpVariants3}
-          key={"ccc"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          <Link to="https://www.instagram.com/highmashion/?hl=en">
-            <SiInstagram />
-            @highmashion
-          </Link>
-        </motion.span>
-        <br />
-        <br />
-        <motion.span
-          variants={dropUpVariants3}
-          key={"cccc"}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{ display: "inline-block" }}
-          className="bcTitleDet"
-        >
-          <Link to="https://www.vsco.co/">
-            <SiVsco />
-            @highmashion
-          </Link>
-        </motion.span>
-      </AnimatePresence>
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <motion.h1
+        key={"businesscardName"}
+        variants={dropUpVariants}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        className="bcTitle"
+      >
+        Masha
+      </motion.h1>
+      <motion.span
+        variants={dropUpVariants}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        // key={"a"}
+        style={{ display: "inline-block" }}
+        className="bcTitle"
+      >
+        Model
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants}
+        // key={"aa"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitle"
+      >
+        &
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants}
+        // key={"aaa"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitle"
+      >
+        Stylist
+      </motion.span>
+      <br />
+      <motion.span
+        variants={dropUpVariants}
+        // key={"aaaa"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        Beauty
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"aaaaa"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        /
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants}
+        // key={"b"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        Commercial{" "}
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"bb"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        /
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants}
+        // key={"bbb"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        Editorial
+      </motion.span>
+      <br />
+      <br />
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"bbbb"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        <GrLocationPin /> Lisbon based
+      </motion.span>
+      <br />
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"bbbbb"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        <GrLocationPin />
+        London often
+      </motion.span>
+      <br />
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"c"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        Email:asd form
+      </motion.span>
+      <motion.span
+        variants={dropUpVariants2}
+        // key={"cc"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet right"
+      >
+        form below
+      </motion.span>
+      <br />
+      <br />
+      <motion.span
+        variants={dropUpVariants3}
+        // key={"ccc"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        <Link to="https://www.instagram.com/highmashion/?hl=en">
+          <SiInstagram />
+          @highmashion
+        </Link>
+      </motion.span>
+      <br />
+      <br />
+      <motion.span
+        variants={dropUpVariants3}
+        // key={"cccc"}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        style={{ display: "inline-block" }}
+        className="bcTitleDet"
+      >
+        <Link to="https://www.vsco.co/">
+          <SiVsco />
+          @highmashion
+        </Link>
+      </motion.span>
+      {/* </AnimatePresence> */}
     </motion.div>
     // </motion.div>
   );
