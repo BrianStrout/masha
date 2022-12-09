@@ -23,12 +23,12 @@ const App = () => {
 
   const [mainHeadOpacity, setMainHeadOpacity] = useState(0);
   const [subHeadOpacity, setSubHeadOpacity] = useState(0);
-
   const [headColor, setHeadColor] = useState("green");
   const [tuckedLeft, setTuckedLeft] = useState(true);
+  const [variableForScrollDesk, setVariableForScrollDesk] = useState(1);
 
   useEffect(() => {
-    console.log("changed on app: " + mainHeadOpacity);
+    // console.log("changed on app: " + mainHeadOpacity);
   }, [mainHeadOpacity]);
 
   return (
@@ -52,6 +52,8 @@ const App = () => {
                 setHeadColor={setHeadColor}
                 tuckedLeft={tuckedLeft}
                 setTuckedLeft={setTuckedLeft}
+                variableForScrollDesk={variableForScrollDesk}
+                setVariableForScrollDesk={setVariableForScrollDesk}
               />
             }
           />

@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import "../App.css";
@@ -7,6 +7,14 @@ import "./compcard.css";
 import Masha from "../images/masha_comp.jpeg";
 
 const CompCard = () => {
+  const [isActive, setIsActive] = useState(false);
+  const tapper = document.getElementById("tapForMe");
+  const handleClick = (event) => {
+    setIsActive((current) => !current);
+    console.log(isActive);
+    tapper.classList.toggle("hide");
+  };
+
   const printRef = useRef();
   const handleDownloadPdf = async () => {
     const element = printRef.current;
@@ -31,9 +39,16 @@ const CompCard = () => {
         >
           <span id="image_name_overlay">Masha Surname</span>
         </div>
-
         <div className="comp_card_info">
-          <div className="comp_card_blurb">
+          <div
+            className={
+              isActive
+                ? "comp_card_blurb comp_card_blurb_active"
+                : "comp_card_blurb"
+            }
+            onClick={handleClick}
+          >
+            <h4 id="tapForMe">My interest...</h4>
             <p>
               "My interest in fashion is both artistic and practical.' I love
               the expressive power of fashion design and the way that creative

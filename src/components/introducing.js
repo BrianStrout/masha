@@ -37,16 +37,8 @@ function Home(props) {
       let scrollAdjustedOpacity1 = 100 - scrollAdjuster;
       let scrollAdjustedOpacity2 = scrollAdjustedOpacity1 / 100;
       let scrollAdjustedOpacity3 = scrollAdjuster2 / 100;
-
-      console.log(scrollAdjustedOpacity2);
-
       props.setSubHeadOpacity(scrollAdjustedOpacity2);
       props.setVariableForScrollDesk(scrollAdjustedOpacity3);
-
-      console.log("scroll adjusted " + scrollAdjustedOpacity2);
-      // console.log("text ad " + textAdjuster);
-      console.log("var " + props.variableForScrollDesk);
-
       if (scrollPercentRounded < 25) {
         props.setMainHeadOpacity(0);
         props.setSubHeadOpacity(0);
@@ -85,12 +77,6 @@ function Home(props) {
   const [canScroll, setCanScroll] = useState(false);
   const [introduced, introducer] = useState(false);
 
-  // React.useEffect(() => {
-  //   if (introduced === true) {
-  //     document.getElementById("findMe").classList.remove("hide");
-  //   }
-  // }, [introduced]);
-
   React.useEffect(() => {
     if (canScroll === false) {
       document.querySelector(".single").classList.add("no-scroll");
@@ -108,10 +94,6 @@ function Home(props) {
     [0, 0.15],
     [1, 0]
   );
-
-  // const chooseScrollVariable = mobile
-  //   ? variableForScrollMobile
-  //   : { props.variableForScrollDesk };
 
   const chooseScrollVariable = mobile ? variableForScrollMobile : textOpacity;
 
@@ -461,9 +443,8 @@ function Home(props) {
         </div>
         <div className="scroll_click">
           <Contact />
-          <Footer />
         </div>
-
+        <Footer />
         {/* ender */}
       </motion.div>
     </>

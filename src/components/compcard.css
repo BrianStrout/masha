@@ -47,13 +47,11 @@
   padding: 4rem;
   gap: 1rem;
 }
-
 .comp_card_info > div {
   border-radius: 0.25rem;
 }
-
 .comp_card_blurb {
-  background-color: transparent;
+  /* background-color: transparent; */
   font-size: 1rem;
 }
 .comp_card_measurements {
@@ -65,7 +63,6 @@
   margin-left: 4rem;
   line-height: 200%;
 }
-
 .comp_card_blurb > p {
   font-style: italic;
 }
@@ -76,6 +73,10 @@
   text-decoration: underline;
 }
 
+#tapForMe {
+  opacity: 0%;
+}
+
 @media only screen and (max-width: 990px) {
   .comp_card_main {
     width: 90vw;
@@ -84,7 +85,6 @@
     display: grid;
     grid-template-columns: 50% 50%;
   }
-
   .comp_card_info {
     padding: 1rem;
   }
@@ -100,8 +100,10 @@
     -moz-columns: 2;
   }
 }
-
 @media only screen and (max-width: 500px) {
+  .comp_card_container {
+    padding-bottom: 10vh;
+  }
   .comp_card_main {
     position: relative;
     width: 90vw;
@@ -110,7 +112,6 @@
     display: grid;
     grid-template-columns: 100%;
   }
-
   .comp_card_headshot {
     position: absolute;
     z-index: 0;
@@ -121,12 +122,10 @@
     justify-content: flex-end;
     align-items: flex-end;
     padding: 0.5rem;
-    /* padding-right: 0.5rem; */
     background-size: cover;
     background-position: center;
     border-radius: 3px;
   }
-
   #image_name_overlay {
     position: absolute;
     z-index: 4;
@@ -147,9 +146,7 @@
     position: absolute;
     top: 12vh;
   }
-
   .comp_card_measurements > ul {
-    /* padding-top: 2px; */
     line-height: 16px;
     columns: 1;
     margin: 0;
@@ -165,25 +162,22 @@
     margin: 0;
     font-weight: 500;
   }
-
   .comp_card_blurb {
+    cursor: "pointer";
     position: absolute;
-    bottom: 5vh;
+    bottom: 0vh;
     background-color: transparent;
     font-size: 14px;
-    height: 20vh;
+    height: 10vh;
     overflow-y: scroll;
     scroll-behavior: auto;
     background-color: rgba(250, 235, 215, 0.62);
+    opacity: 50%;
   }
-
-  .comp_card_blurb:hover {
-    height: 50vh;
-    background-color: red;
+  .comp_card_blurb_active {
+    height: 40vh;
   }
-
   .comp_card_measurements {
-    /* background-color: yellowgreen; */
     position: absolute;
     bottom: 5vh;
     width: 100%;
@@ -196,35 +190,12 @@
     font-size: 14px;
   }
 
-  /* 
+  #tapForMe {
+    opacity: 100%;
+  }
+
   #image_name_overlay {
-    font-family: "Maragsa";
-    color: antiquewhite;
-    font-size: 2rem;
-    text-decoration: underline;
-  } */
-  /* 
-  .comp_card_info > div {
-    border-radius: 0.25rem;
+    opacity: 0;
+    pointer-events: none;
   }
-
-  .comp_card_blurb {
-    background-color: transparent;
-    font-size: 1rem;
-  }
-
-  .comp_card_measurements > ul {
-    margin-left: 4rem;
-    line-height: 200%;
-  }
-
-  .comp_card_blurb > p {
-    font-style: italic;
-  }
-  .comp_card_contacts {
-    background-color: transparent;
-  }
-  #comp_name {
-    text-decoration: underline;
-  } */
 }

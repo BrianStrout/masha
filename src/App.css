@@ -35,10 +35,6 @@ body {
   color: #000000;
 }
 
-.comp_card_container {
-  background-color: var(--backColor);
-}
-
 circle,
 rect,
 line {
@@ -278,9 +274,6 @@ line {
   font-size: 1.25rem;
   padding: 0 1.5rem;
 }
-.model {
-  /* overflow: hidden; */
-}
 .first {
   display: "inline-block";
 }
@@ -403,6 +396,10 @@ line {
     font-size: 0.75rem;
     padding: 0rem;
     padding-left: 0.25rem;
+  }
+
+  .scroll_click {
+    padding-bottom: 10vh;
   }
 }
 
