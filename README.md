@@ -1,5 +1,5 @@
-- [![Next][next.js]][next-url]
-- [![React][react.js]][react-url]
+[![Next][next.js]][next-url]
+[![React][react.js]][react-url]
 
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [next-url]: https://nextjs.org/
