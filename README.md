@@ -18,7 +18,14 @@ Made with...
 </p>
 <br />
  <p >
-    This site was made for Masha Stetz, a young motivated and aspiring model who lives in Lisbon Portugal and London UK. As this site is meant to serve not only as part of my portfolio, but also as a starting point and first draft of her professional modeling website, it was created with a focus on aesthetic. It was coded from scratch in React with CSS and I also used Framer's Motion api to help give the site's introduction a more eye catching entrance.
+      This site was made for Masha Kiseleva, a young, motivated, and
+                aspiring model who lives in Lisbon, Portugal, and London, UK. As
+                this site is meant to serve not only as part of my portfolio,
+                but also as a starting point and first draft of her professional
+                modeling website, it was created with a focus on aesthetic. It
+                was coded from scratch in React with CSS and also incorporated
+                Framer's Motion api to help give the site's introduction a more
+                eye catching entrance.
   </p>
 
 <!-- LICENSE -->
