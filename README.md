@@ -10,7 +10,6 @@
 Made with...
 
 [![React][react.js]][react-url]
-![HTML5]
 ![CSS3]
 ![Framer]
 ![Swiper]
