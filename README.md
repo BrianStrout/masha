@@ -19,13 +19,13 @@ Made with...
 <br />
  <p >
       This site was made for Masha Kiseleva, a young, motivated, and
-                aspiring model who lives in Lisbon, Portugal, and London, UK. As
-                this site is meant to serve not only as part of my portfolio,
-                but also as a starting point and first draft of her professional
-                modeling website, it was created with a focus on aesthetic. It
-                was coded from scratch in React with CSS and also incorporated
-                Framer's Motion api to help give the site's introduction a more
-                eye catching entrance.
+                  aspiring model who lives in Lisbon, Portugal and London, UK.
+                  As this site is meant to serve not only as part of my
+                  portfolio, but also as a starting point and first draft of her
+                  professional modeling website, it was created with a focus on
+                  aesthetic. It was coded from scratch in React with CSS and
+                  also incorporats Framer's Motion api to help give the site's
+                  introduction a more eye catching entrance.
   </p>
 
 <!-- LICENSE -->
@@ -40,7 +40,7 @@ All photos used with permission from Masha Stetz, please contact her directly fo
 
 Brian Strout Brianjstrout@Gmail.com
 
-Project Link: [https://github.com/bstrout/masha](https://github.com/bstrout/masha)
+Project Link: [https://mashaoflisbon.netlify.app/](https://mashaoflisbon.netlify.app)
 
 <!-- ACKNOWLEDGMENTS -->
 
